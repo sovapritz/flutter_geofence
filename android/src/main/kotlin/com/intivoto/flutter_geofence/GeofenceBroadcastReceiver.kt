@@ -29,7 +29,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
             val event = if(geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) GeoEvent.entry else GeoEvent.exit
             val triggeringGeofences = geofencingEvent!!.triggeringGeofences
 
-            for (geofence: Geofence in triggeringGeofences) {
+            for (geofence: Geofence in triggeringGeofences!!) {
                 val region = GeoRegion(id=geofence.requestId,
                         latitude = geofencingEvent!!.triggeringLocation!!.latitude,
                         longitude = geofencingEvent!!.triggeringLocation!!.longitude,
